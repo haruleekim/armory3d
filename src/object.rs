@@ -1,13 +1,14 @@
 use crate::internal;
 
 pub struct Object { id: internal::ObjectId }
+
 impl Object {
     pub fn from_name(name: &str) -> Self {
         let name = std::ffi::CString::new(name).unwrap();
         let id = unsafe { internal::get_object(name.as_ptr()) };
         Self { id }
     }
-    
+
     pub fn id(&self) -> internal::ObjectId { self.id }
 
     #[allow(clippy::too_many_arguments)]
