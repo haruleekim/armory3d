@@ -15,5 +15,5 @@ impl Traceable for i32 { fn trace(&self) { unsafe { internal::tracei(*self) } } 
 
 #[macro_export]
 macro_rules! trace {
-    ($e:expr) => { crate::trace::Traceable::trace(&$e) };
+    ($e:expr) => { ::armory3d::trace::Traceable::trace(&$e) };
 }
